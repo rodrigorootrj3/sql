@@ -1,2 +1,4 @@
 venv-3.6/
 venv-3.6-sqld/
+db/
+.db/
