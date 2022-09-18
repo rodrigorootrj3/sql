@@ -1,0 +1,15 @@
+É a analise dos dados de cada uma das colunas, de uma tabela.
+
+Manutenção e garantia da consistencia e precisão dos dados.
+Integridade de Dominio: É a tipagem do dado de uma coluna, ex: Inteiro(numérico), Float(numérico), Boleano(Boleano), Varchar(caractere).
+Ex: Preço, é Inteiro?É natural, aceita negativo?É float, se sim quantas casas decimais?Pode ser nulo?Conjuntos de Valores Discretos(pre definidos)?
+ - Preço: 25,33, não aceita -20,33, não aceita 25 reais e 33 centavos, não aceita valor nulo nem valor zero.
+Integridade Referencial.
+    A coluna de chave primaria da tabela produtos, tem o campo ID 523, para o produto 523 é uma chave estrangeira na tabela vendas.
+    Se o ID 523 não existir na tabela produtos, a venda não existe. 
+Integridade de Vazio:
+    Aceita nulo?
+Integridade de chave:
+    Valores unicos e não podem ser nulos.
+Integridade definida pelo usuário:
+    São da regra do negócio, impede ou permite valores.

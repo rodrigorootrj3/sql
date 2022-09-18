@@ -1,0 +1,48 @@
+======================================================================
+- Campo
+- Criar Banco
+- Criar Tabela
+- Python, interativo.
+======================================================================
+- Criar Tabela
+-- Criar uma tabela com campos: ID, nome, cpf & Inserir dados nessa /   tabela.
+--- poc17042021.d
+--- Criar Campo ID automático, não nulo.
+-- 
+docker --login -u Abhijittoorrj
+c4d63d13-43e8-442d-bffe-d6025d7666f9
+
+docker --login -u $DOCKER_HUB_LOGIN
+export DOCKER_HUB_LOGIN="Abhijittoorrj"
+export DOCKER_HUB_TOKEN="c4d63d13-43e8-442d-bffe-d6025d7666f9"
+
+@UYFM8?eb=
+host grafana.video.globoi.com
+
+alias configgitglobo='git config --global user.mail "rodrigo.silva.cunha@g.globo" && git config --global user.name "rodrigo.silva.cunha"'
+alias configgitrcunhadev='git config --global user.mail "rodrigo.toor.rj@gmail.com" && git config --global user.name "rodrigorootrj2"'
+
+#Digital Ocean
+rcunha
+dop_v1_4eb8d6265219ffda6e4e29b4fe89d1d6f08115b583f4af350cfcce48e1bf6e68
+---
+Criar Droplet
+doctl compute droplet create --region tor1 --image ubuntu-18-04-x64 --size s-1vcpu-1gb Dropless-Concept
+doctl compute droplet list
+doctl compute droplet delete <ID> -f
+DROPLET_ID=$(doctl compute droplet create example.com --size s-1vcpu-1gb --image ubuntu-20-04-x64 --region nyc3 --wait --no-header --format=ID)
+doctl projects resources assign <id-do-projeto> --resource=do:droplet:<id-do-droplet>
+
+
+doctl compute droplet create --region tor1 --image ubuntu-18-04-x64 --size s-1vcpu-1gb dropless-ocozzi --project monitoring
+82fd5a06-5bc8-4b95-b0a1-1fe94cb06a75
+#Google Cloud
+#AWS
+admin
+AKIARY4UYZGXBZY3B4GS
+Ehkla9k67tO4NcVKBh7NuECegDdtu/59K8NZb/b/
+#Azure
+
+SDK, O que é ?
+gcloud auth login --no-browser
+Curso: Boson Treinamentos.

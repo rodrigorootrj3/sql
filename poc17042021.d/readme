@@ -1,0 +1,5 @@
+user = root
+passwd = dbpass
+db = database
+tabela = Tprimaria
+tabela = Tsecundaria

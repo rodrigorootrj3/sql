@@ -1,0 +1,70 @@
+Curso:
+Modelagem de Dados - O que são Atributos
+Notas:
+Refazer aulas de cardinalidade, 10 até 15.
+- Notações Pé de galinha.
+Cardinalidade:
+Diz respeito aos itens que se relacionam nas entidades.
+Restrição de Integridade: 2x
+-Tipos de Diagramação
+- Crow's foot(pé de galinha)
+- Peter Chen
+- Uml
+Dicionario de dados ou repositório de metadados: 2x
+- Documento, opcional, para armazenar informações sobre conteudo, formato e estrutura.
+----------------------------------------------------------------------------------------------------
+Tabela -  Relacionamento -  Nome do Relacionamento  - Descrição
+          | - tbl_autor     | - Escreve             | Tabela para cadastro dos livros da coleção.
+tbl_livro | - tbl_editora   | - Publica             |
+----------------------------------------------------------------------------------------------------
+tbl_autor  |tbl_livro       | - Escreve             |Tabela para cadastro dos autores dos livros
+----------------------------------------------------------------------------------------------------
+tbl_editora|tbl_livro       | - Publica             |Cadastro de editoras
+----------------------------------------------------------------------------------------------------
+
+Dependencias(Funcional, Multivalorada, Transitiva):
+Esta relacionada aos atributos de uma entidade.
+Funcional: É uma entidade E, e x e y são dois atributos quaisquer de E. Dizemos que y é funcionalmente dependente de X se e somente se cada valor de X tiver associado a ele exatamente
+um valor de Y.
+X-->Y
+Ex: dados dois atrubutos:
+[numero_do_pedido][prazo_de_entrega], o prazo de entrega depende do numero de um pedido.
+O atributo que determina o valor é chamado determinante, o outro é chamado de dependente.
+numero do pedido:Determinante.
+prazo de entrega:Dependente.
+Dependencia Funcional Total: Depende de toda uma chave primaria composta, ou seja a quantidade do produto depende da PK:Num_pedido e PK:Cod_produto
+[Item_pedido]
+PK:Num_pedido
+PK:Cod_produto
+   Quantidade do Produto
+Dependencia Funcional Parcial: Pode ter duas chaves primarias, mas depende apenas de uma.
+[Matricula]
+PK id_aluno
+PK cod_disciplina
+   nome_disciplina
+   data_inicio
+O atributo nome_disciplina depende apenas da PK:cod_disciplina
+Dependencia Funcional Transitiva:
+Quando um campo(Atributo/coluna) não depende diretamente de uma chave primaria, mas depende de uma FK.
+[Pedido]
+PK:num_pedido
+  prazo_entrega
+FK:cod_vendedor
+  nome_vendedor
+Dependencia Multivalorada:
+  É quando apesar de não ter uma PK de dependencia, um atributo tem outros atributos necessarios a ele.
+ Ex:
+ [Carro]
+ Modelo|Ano|Cor
+ uno|2010|preto
+ uno|2010|prata
+ fox|2012|verde
+ fox|2013|branco
+ gol|2000|prata
+ A>>B;B depende de A.
+ No exemplo, o ano e a cor são independentes entre si mas dependem do modelo, mesmo o modelo não sendo PK.Ou seja, 
+ não faz sentido existir um ano e uma cor sem existir um carro.
+ Glossario:
+ Campo = Nome da coluna;
+  ex: Tabela cliente tem 4 campos: [cod_cliente, nome_cliente, tel_cliente, endereco_cliente]
+PKc: Chafe Primaria Composta  

@@ -1,0 +1,133 @@
+Anomalias: São problemas que ocorrem em banco de dados mal projetados e não normalizados, geralmente ocorrem por excesso de dados.
+Tipos de Anomalias: Inclusão,Exclusão, Modificação.
+Anomalia de inclusão:  Anomalia que existe ao adicionar um dado.
+- Quando você cadastra um livro, só pode cadastra-lo se ele estiver cadastrado na tabela de autor. Isso é uma anomalia.
+Anomalia de Exclusão: Ao excluirmos um registro, dados referentes em outra tabela são excluidos.
+- Se eu excluir um autor, e os livros relacionados ao autor também forem excluidos, então temos uma anomalia.
+Anomalia de Modificação: Ao alterar um dado, em uma tabela, dados em outras tabelas precisam ser alterados em cascata.
+- Se o código de um autor for modificado e esse código precisar ser modificado na tabela de livros. Temos uma anomalia. O correto é ele ser atualizado apenas uma vez.
+Eliminar anomalias: Projetar os esquemas de relações(tabelas) no banco de modo que não ocorram essas anomalias, para isso utilizamos o processo de normalização.
+
+Normalização: É a correção e anomalias em um banco de dados.
+É pegar dados de uma tabela, que não precisam estar ali e criar outras tabelas.Dessa forma a redundancia de dados não é um problema.
+
+Processo proposto por Codd, 1972, chamado de forma normal.
+Existem 3 formas normais: 1a,2a,3a formas normais.
+3a forma normal, é chamada de foma normal de boyce-codd.
+Objetivo da Normalização:
+Analisar os esquemas de relação(tabelas) com base em suas dependencias funcionais e chaves primárias, para...
+1. minimizar redundancias.
+2. minimizar anomalias de inserção, exclusão e modificação.
+
+As relações são decompostas em esquemas de relação menores, que atendem aos testes de forma normal.
+Precisa ser feita em todas as relações do banco de dados.
+
+FN 1:
+Modelagem de Dados - Normalização - Primeira Forma Normal
+- Separar dados multi valorados, transformando em uma outra tabela.
+Ex:
+tabela_cliente
+cod_cliente, nome_cliente, tel_cliente,endereco_cliente
+01|Jose|99653-2145,2865-3212|rua das giestas,234,ap. 45, vila bela
+02|Marcos|2643-5321|av. carlos de almeida,459,vila das rosas
+03|Ana|4213-6532,97563-5632|rua min. alberto jorge, 1492,vila primavera
+04|Pedro|99122-4891|rua alianca,29,vila 7 de setembro.
+Aplicando Forma normal 1:
+tabela_cliente
+cod_cliente|nome_cliente|rua|bairro
+01|Jose|rua das giestas,234,ap. 45| vila bela
+02|Marcos|av. carlos de almeida,459|vila das rosas
+03|Ana|rua min. alberto jorge, 1492|vila primavera
+04|Pedro|rua alianca,29|vila 7 de setembro.
+tabela_telefone
+cod_cliente|tel_cliente
+01|99653-2145
+01|2865-3212
+02|2643-5321
+03|4213-6532
+03|97563-5632
+04|99122-4891
+
+
+FN 2: Baseada no conceito de dependencia funcional total.
+Um esquema de relação R esta na 2FN(segunda forma normal) se cada atributo não-chave de R for total e funcionalmente dependente da PK de R. Ou seja, apenas uma PK na tabela.
+Para checkar 2FN, testamos as dependencias funcionais cujos atributos fazem parte da chave primária. Caso a PK tenha um unico atributo, esse teste não precisa ser aplicado.
+
+Para a tabela estar na segunda forma normal, ela precisa estar na primeira forma normal.
+
+Exemplo:
+tbl_peca PK = cod_peca + cod_fornecedor
+cod_peca(PKc)|cod_fornecedor(PKc)|local_fornecedor|qtde_estoque|tel_fornecedor|qtd_caixas
+0009|121|São Paulo|512|2365-6532|52
+0023|122|Manaus|263|4465-8632|27
+0065|121|São Paulo|196|2365-6532|20
+0071|123|Porto Alegre|89|2956-8653|9
+0073|122|manaus|296|4465-8632|30
+Normalização:
+tbl_peca
+cod_peca(PK)|cod_fornecedor(FK)|qtd_estoque|qtd_caixas
+0009|121|512|52
+0023|122|263|27
+0065|121|196|20
+0071|123|089|09
+0073|122|296|30
+
+tbl_fornecedor
+cod_fornecedor(PK)|local_fornecedor|tel_fornecedor
+121|São Paulo|2365-6532
+122|Manaus|4465-8632
+123|Porto Alegre|2956-8653
+
+FN 3: Dependencia Transitiva(atributos que dependem de atributos não chave).
+  Feita a segunda forma normal, aplica-se a terceira.
+No exemplo abaixo, a tabela não esta normalizada. Pois a dependencia cod_vendedor e nome_vendedor, se relacionam. A normalização consiste em
+separar cod_vendedor e nome vendedor em outra tabela.
+tbl_venda
+nota_fiscal(PK)|cod_vendedor|nome_vendedor|cod_produto|qtd_vendida
+15326|002|Leila|132|10
+15327|006|Ana|153|12
+15328|002|Leila|143|11
+15329|009|Fabio|132|9
+15330|007|Renato|153|12
+
+Normalizando
+tbl_venda
+nota_fiscal(PK)|cod_vendedor(FK)|cod_produto|qtd_vendida
+15326|002|132|10
+15327|006|153|12
+15328|002|143|11
+15329|009|132|9
+15330|007|153|12
+
+tbl_vendedor
+cod_vendedor(PK)|nome_vendedor
+002|Leila
+006|Ana
+009|Fabio
+007|Renato
+
+
+FNBC: É quando uma tabela não possui uma chave primaria, mas possui chaves candidatas.
+Ex:
+tbl_fornecedor
+fornecedor_id|fornecedor_nome|produto_id|qtd
+f1|acme|p1|600
+f1|acme|p2|300
+f1|acme|p3|250
+f1|acme|p4|420
+f2|umbrella|p1|350
+...
+Na tabela, temos duas chaves candidatas, fornecedor_id + produto_id e também fornecedor_nome + produto_id
+superposição é produto_id, pois se repete em ambas as chaves candidatas.
+
+Normalização:
+tbl_fornecedor
+Fornecedor_id|Fornecedor_nome
+F1|acme
+F2|umbrella
+
+tbl_forn_prod
+Fornecedor_id|Produto_id|qtd
+ou 
+tbl_forn_prod_nome
+fornecedor_nome|produto_id|qtd

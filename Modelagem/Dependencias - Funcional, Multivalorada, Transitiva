@@ -1,0 +1,43 @@
+Dependencias(Funcional(total, parcial e transitiva) e Multivalorada):
+Esta relacionada aos atributos(colunas) de uma entidade(tabela).
+
+-Funcional: É uma entidade E, e x e y são dois atributos quaisquer de E. Dizemos que y é funcionalmente dependente de X se e somente se cada valor de X tiver associado a exatamente
+um valor de Y.
+Tipos de Dependencia Funcional: Total,Parcial e Transitiva.
+X-->Y
+Ex: dados dois atrubutos:
+tbl_item_pedido
+PK:numero_do_pedido|PK:prazo_de_entrega|qtd_produto
+O atributo qtd_produto depende tanto de numero_do_pedido quanto de prazo_de_entrega.
+O atributo que determina, é chamado de determinante: numero_do_pedido e prazo_de_entrega.
+O atributo que depende, é chamado de dependente: qtd_produto.
+-- Dependencia Funcional Total: Depende de toda uma chave primaria composta, ou seja a quantidade do produto depende da PK:Num_pedido e PK:Cod_produto
+tbl_pedido
+PK:Num_pedido|PK:Cod_produto|Quantidade_do_Produto
+O item Quantidade_do_Produto depende dos atributos Num_pedido e Cod_produto.
+-- Dependencia Funcional Parcial: Pode ter duas chaves primarias, mas depende apenas de uma.
+tbl_matricula
+PK id_aluno|PK cod_disciplina|nome_disciplina|data_inicio
+O atributo nome_disciplina depende apenas da PK:cod_disciplina
+
+- Dependencia Funcional Transitiva:
+Quando um campo(Atributo/coluna) não depende diretamente de uma chave primaria, mas depende de uma FK.
+tbl_pedido
+PK:num_pedido|prazo_entrega|FK:cod_vendedor|nome_vendedor
+nome_vendedor depende de cod_vendedor
+- Dependencia Multivalorada:
+  É quando apesar de não ter uma PK de dependencia, um atributo tem outros atributos necessarios a ele.
+ Ex:
+ [Carro]
+ Modelo|Ano|Cor
+ uno|2010|preto
+ uno|2010|prata
+ fox|2012|verde
+ fox|2013|branco
+ gol|2000|prata
+ A>>B;B depende de A.
+ No exemplo, o ano e a cor são independentes entre si mas dependem do modelo, mesmo o modelo não sendo PK.Ou seja, 
+ não faz sentido existir um ano e uma cor sem existir um carro.
+ Glossario:
+ Campo = Nome da coluna;
+  ex: Tabela cliente tem 4 campos: [cod_cliente, nome_cliente, tel_cliente, endereco_cliente]

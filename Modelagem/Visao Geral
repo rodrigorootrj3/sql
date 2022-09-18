@@ -1,0 +1,15 @@
+Modelo Conceitual: Fase 1, levantamento de requisitos. Serve de forma descritiva.
+Modelo Lógico: Fase 2.
+Modelo Físico: Detalhamento dos metadados(inteiro, float, boolean, etc) ja amarra ao SGBD.
+
+Mundo Observado -> Modelo Conceitual -> Modelo Lógico ->Modelo Fisico.
+Esquema:
+
+Criado por petter chain.
+ER : Entidade relacionamento.
+DER: Diagrama associada ao MER. Entidade: Retangulo, Atributo:Elipse, Relacionamento: Losango
+MER: Modelo, entidade relacionamento. Lista de entidades, atribugos e relacionamentos sobre os tipos de dados.
+DER:
+- Atributos, tem subatributos.
+- Rretangulos, dentro de retangulos.
+- Triangulo:??

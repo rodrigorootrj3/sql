@@ -1,0 +1,34 @@
+Entidade:
+Algo que precisa ser representado em um banco de dados.
+Representam um: Tema, Topico, Conceito.
+Ex: Empregados, Livros, Vendas, Produtos.
+[Funcionario]__________[Departamento]
+Entidades: Funcionario(substantivo e singular), Departamento(substantivo e Singular).
+Regras:
+- Clareza, substantivados. Nome no singular.
+
+DER: Diagrama Entidade Relacionamento, petter chain.
+Nomes: Começar com letra, Usar palavra no singular,Não ter espaço,Não term caracter especial.
+Nas tabelas, nomes unicos.
+Nomes das entidades, devem ser unicos dentro de um esquema(estrutura do banco).
+
+- Instancia de Entidade:
+Entidade Carro, tem: Fabricante, Modelo, Cor, Placa.
+A entidade carro, com as instancias declaradas  é uma instancia de entidade.
+Ex: A tabela(entidade) carro tem(na ordem) as colunas fabricante, modelo, cor e placa.
+A primeira linha da tabela contém a seguinte formatação(instancia).
+Ford,Fiesta,Azul,AXX-3045
+Fiat,Uno,Branco,AWW-1001
+Carro: Entidade.
+Instancias 1(Ford,Fiesta,Azul,AXX-3045)
+Instancia 2 (Fiat,Uno,Branco,AWW-1001)
+
+Relacionamentos: São Relações que Entidades(Tabelas) que se relacionam com outras Entidades(Tabelas). São representados por verbos, na voz ativa ou na voz passiva.
+Exemplo:
+Entidade Cliente
+Entidade Carro
+A entidade Cliente compra a Entidade Carro, neste caso a relação é a compra.
+[Cliente]____compra____[Carro]
+Nota:São representados por verbos na voz ativa e na voz passiva, no caso acima o verbo comprar.
+Voz ativa:  1 cliente compra 1 carro.
+Voz passiva:1 carro é comprado por 1 cliente.

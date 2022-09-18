@@ -1,0 +1,78 @@
+Atributos:
+Atributo: Descreve a caracteristica de uma Entidade: Fabricante, modelo, cor , placa, preço. É a Coluna.
+Possuem um tipo de dado(dominio) nome e valor especifico. Representados em elipse, ligado a entidade por um traço.
+
+Tipos de Atributos:
+Simples, Composto, Multivalorado, Determinante, Identificador.
+Ex:
+Simples ou Atomico.
+ Nome da empresa, CPF, CNPJ, Cor.
+Atributo Composto.
+Pode ser desmembrado em atributos simples menores.
+Ex:
+Endereço: Rua, Cep, Bairro.
+
+Multi Valorado:
+Mais de um valor, para o mesmo registro.
+Ex: Telefone.
+Empresa --> 8431,3869
+
+Determinante:
+Determinar de forma unica e exclusiva as instancias de uma entidade.
+Ex: CNPJ, CPF, Código de um Produto.
+[Empresa]--->(CNPJ) #É importante grifar(sublinhar os determinantes)
+
+Identificadores:
+São Atributos que servem como identificador de uma entidade.
+Unicos: CNPJ, CPF, Código de um Produto.
+Não Unicos: Usada para agrupar instancias de classes em categorias.
+    Ex: Chaves.
+Chaves Compostas: Dois ou mais atributos combinados.
+
+
+Entidade:
+A entidade é um objeto do mundo real representado em um banco de dados. Por exemplo, carro é uma entidade do mundo real que possui atributos como:
+Fabricante, marca, modelo,cor e placa. As entidades são as tabelas, como por exemplo tabela cliente, tabela endereço, tabela preço. São substantivos concretos e abstratos.
+- Instancia: 
+Ex: 
+Uma Entidade(tabela) possui duas linhas, para as seguintes colunas: [Fabricante,Marca, Modelo,Cor,Placa]
+A primeira linha possui: [Fiat, Uno, mille, prata,1001-XPTO.] a segunda [Wolkswagen, Gol, 2015,branco, 1002-XPTO], cada linha da coluna é uma instancia.
+Cada instancia é uma tupla com dados sobre os carros.
+
+Toda entidade é uma tabela, mas nem toda tabela é uma entidade. Isso porque para ser uma identidade, a tabela precisa possuir certos padrões. Um deles é a chave primária. No caso do carro,
+a chave primária é a placa, pois não se repete.
+
+Chave primária vs Chave estrangeira.
+Chave primária é um objeto que não se repete, que esta dentro do mesmo contexto da entidade. Ou seja, para a entidade carro, existe o contexto placa. A placa é um atributo que não se repete. Isto posto o objeto placa pode ser uma chave primária.
+Tipos de chave primária:
+Chave Simples, Composta.
+Chave composta é uma chave onde dois itens em um conjunto de dados não se repete, servindo como alternativa a uma chave primária a combinação de atributos
+Ex:
+Tabela Garrafa
+tipo cor produto
+pequena,verde,vinho
+media, verde, cerveja
+A PK pode ser tipo e cor, pois não se repetem.
+*PK:primary key
+Chave Surrogada/Substituta
+É um valor unico, criado, que não tem significado para a entidade.
+Ex: ID
+
+db_loja
+t_cliente[nome, cpf,rg,endereço]
+t_fornecedor[nome, cnpj, contato, telefone]
+t_loja[nome, endereço, cnpj,contato, telefone]
+t_estoque[arroz, feijao, macarrão, oleo, farinha, sal, enlatado, carne seca, biscoito ]
+
+Chave Estrangeira: chave estrangeira é baseada em valores de dados, classificados como ponteiros lógicos.
+
+Valor de uma chave estrangeira deve corrsponder a um valor que existe em uma chave primária.
+chave estrangeira deve referenciar uma chave primária ou uma coluna.
+
+Dominio de dados, são os metadados de uma coluna, eles definem os tipos de dados dos campos de uma coluna.
+campo           tipo de dado    tamanho
+id_cliente      numero          4 caracteres
+nome_cliente    caractere       40 caracteres
+cpf             caractere       11 caracteres
+data_nasc       data e hora     8 caracteres
+
